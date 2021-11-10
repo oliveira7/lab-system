@@ -1,0 +1,11 @@
+- [x] Entities -> modelo das tabelas e relacionamentos
+- [x] configurar o banco de dados
+- [x] Rotas -> encaminha a requisição para a controller
+- [] Controllers -> controlladores encaminham para service
+- [] Interfaces
+- [] Services -> regra de negocio se for chamar banco manda para o repository
+- [] Respositories -> conversa com o banco atravez de orm ou sql
+- [x] modules -> adicionar modulos 
+---
+- [] tratar erros
+- [] validação de requests

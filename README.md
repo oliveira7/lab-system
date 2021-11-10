@@ -20,7 +20,7 @@
 ## 🤓 Mer e Fluxo da aplicação
 ![Screenshot](/docs/mer.PNG)
 
-![Screenshot](/docs/estrutura-fluxo.PNG)
+
 ## 🧐 A fazer
 
 
