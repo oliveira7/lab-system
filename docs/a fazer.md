@@ -1,11 +1,11 @@
-- [x] Entities -> modelo das tabelas e relacionamentos
-- [x] configurar o banco de dados
-- [x] Rotas -> encaminha a requisição para a controller
-- [] Controllers -> controlladores encaminham para service
-- [] Interfaces
-- [] Services -> regra de negocio se for chamar banco manda para o repository
-- [] Respositories -> conversa com o banco atravez de orm ou sql
-- [x] modules -> adicionar modulos 
+- [x] Crud - Laboratory
+- [] Crud - Exam
 ---
-- [] tratar erros
-- [] validação de requests
+Regras de negocio
+- [] Um exame pode estar associado a mais de um laboratório;
+- [] O cadastro de um laboratório/exame é considerado ativo e recebe um `id` gerado automaticamente
+- [] Possibilidade de executar cadastro, atualização e remoção em lote;
+- [] Endpoint que faz a busca por nome do exame e retorna todos os laboratórios associados a
+esse exame.
+
+

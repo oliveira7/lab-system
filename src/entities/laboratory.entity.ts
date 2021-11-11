@@ -3,10 +3,11 @@ import {
   Column,
   PrimaryGeneratedColumn,
   ManyToMany,
+  JoinTable,
 } from 'typeorm';
 import { Exam } from './exam.entity';
 
-@Entity()
+@Entity('laboratories')
 export class Laboratory {
   @PrimaryGeneratedColumn()
   id: number;
@@ -15,11 +16,12 @@ export class Laboratory {
   name: string;
 
   @Column()
-  adress: string;
+  address: string;
 
   @Column({ default: true })
   status: boolean;
 
-  @ManyToMany((type) => Exam, (exam) => exam.laboratories)
+  @JoinTable()
+  @ManyToMany(() => Exam, (exam: Exam) => exam.laboratories)
   exams: Exam[];
 }

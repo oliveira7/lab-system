@@ -3,7 +3,6 @@ import {
   Column,
   PrimaryGeneratedColumn,
   ManyToMany,
-  JoinTable,
 } from 'typeorm';
 import { Laboratory } from './laboratory.entity';
 
@@ -12,7 +11,7 @@ export enum type {
   IMAGE = 'imagem',
 }
 
-@Entity()
+@Entity('exams')
 export class Exam {
   @PrimaryGeneratedColumn()
   id: number;
@@ -28,10 +27,7 @@ export class Exam {
 
   @Column({ default: true })
   status: boolean;
-
-  @ManyToMany((type) => Laboratory, (laboratory) => laboratory.exams, {
-    cascade: true,
-  })
-  @JoinTable()
+  
+  @ManyToMany(() => Laboratory, (laboratory: Laboratory) => laboratory.exams)
   laboratories: Laboratory[];
 }
