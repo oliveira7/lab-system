@@ -8,5 +8,5 @@ export class CreateLaboratory {
   readonly address: string;
 
   @IsBoolean()
-  readonly status: boolean;
+  readonly active: boolean;
 }

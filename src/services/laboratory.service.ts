@@ -1,8 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Laboratory } from 'src/entities/laboratory.entity';
-import { CreateLaboratory } from 'src/interfaces/request/create-laboratory.interface';
-import { UpdateLaboratory } from 'src/interfaces/request/update-laboratory.interface';
+import { CreateLaboratory } from 'src/interfaces/create-laboratory.interface';
+import { UpdateLaboratory } from 'src/interfaces/update-laboratory.interface';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -13,11 +13,15 @@ export class LaboratoryService {
   ) {}
 
   findAll() {
-    return this.laboratoryRepository.find();
+    return this.laboratoryRepository.find({
+      relations: ['exams'],
+    });
   }
 
   findOne(id: string) {
-    const laboratory = this.laboratoryRepository.findOne(id);
+    const laboratory = this.laboratoryRepository.findOne(id, {
+      relations: ['exams'],
+    });
 
     if (!laboratory) {
       throw new NotFoundException(`Laboratory ID ${id} not found.`);

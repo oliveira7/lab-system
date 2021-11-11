@@ -7,8 +7,8 @@ import {
   Param,
   Body,
 } from '@nestjs/common';
-import { CreateLaboratory } from 'src/interfaces/request/create-laboratory.interface';
-import { UpdateLaboratory } from 'src/interfaces/request/update-laboratory.interface';
+import { CreateLaboratory } from 'src/interfaces/create-laboratory.interface';
+import { UpdateLaboratory } from 'src/interfaces/update-laboratory.interface';
 import { LaboratoryService } from 'src/services/laboratory.service';
 
 @Controller('laboratories')

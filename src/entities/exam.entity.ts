@@ -1,9 +1,4 @@
-import {
-  Entity,
-  Column,
-  PrimaryGeneratedColumn,
-  ManyToMany,
-} from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany } from 'typeorm';
 import { Laboratory } from './laboratory.entity';
 
 export enum type {
@@ -26,8 +21,8 @@ export class Exam {
   type: type;
 
   @Column({ default: true })
-  status: boolean;
-  
+  active: boolean;
+
   @ManyToMany(() => Laboratory, (laboratory: Laboratory) => laboratory.exams)
   laboratories: Laboratory[];
 }
