@@ -6,6 +6,7 @@ import {
   Put,
   Param,
   Body,
+  Query,
 } from '@nestjs/common';
 import { CreateExam } from 'src/interfaces/create-exam.interface';
 import { UpdateExam } from 'src/interfaces/update-exam.interface';
@@ -16,7 +17,10 @@ export class ExamController {
   constructor(private readonly examService: ExamService) {}
 
   @Get()
-  index() {
+  index(@Query('name') name: string) {
+    if (name) {
+      return this.examService.findByName(name);
+    }
     return this.examService.findAll();
   }
 

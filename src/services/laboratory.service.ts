@@ -18,8 +18,8 @@ export class LaboratoryService {
     });
   }
 
-  findOne(id: string) {
-    const laboratory = this.laboratoryRepository.findOne(id, {
+  async findOne(id: string) {
+    const laboratory = await this.laboratoryRepository.findOne(id, {
       relations: ['exams'],
     });
 

@@ -20,8 +20,10 @@ export class ExamService {
     return this.examRepository.find({ where: { active: true } });
   }
 
-  findOne(id: string) {
-    const exam = this.examRepository.findOne(id);
+  async findOne(id: string) {
+    const exam = await this.examRepository.findOne(id, {
+      relations: ['laboratories'],
+    });
 
     if (!exam) {
       throw new NotFoundException(`Exam ID ${id} not found.`);
@@ -65,5 +67,18 @@ export class ExamService {
     }
 
     return this.examRepository.remove(exam);
+  }
+
+  async findByName(name: string) {
+    const exam = await this.examRepository.find({
+      where: { name: name, active: true },
+      relations: ['laboratories'],
+    });
+
+    if (!exam) {
+      throw new NotFoundException(`Exam NAME ${name} not found.`);
+    }
+
+    return exam;
   }
 }
